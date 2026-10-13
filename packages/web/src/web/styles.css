@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face { font-family: Manrope; src: url('/fonts/manrope-light.ttf') format('truetype'); font-weight: 200; font-display: swap; }
+@font-face { font-family: Manrope; src: url('/fonts/manrope-regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Michroma; src: url('/fonts/michroma.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+:root { font-family: Manrope, sans-serif; color: #f2edf9; background: #000000; font-synthesis: none; --drift-x: 0px; --drift-y: 0px; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible { outline: 1px solid #e4cafc; outline-offset: 7px; }
+.fragrance-hero { position: relative; isolation: isolate; width: 100%; height: 100svh; min-height: 720px; overflow: hidden; background: #000000; }
+.navigation { position: absolute; top: 5.2%; left: 5%; right: 5%; display: flex; align-items: center; justify-content: space-between; z-index: 5; }
+.nav-control { display: inline-flex; align-items: center; gap: 15px; font-size: 10px; letter-spacing: .2em; padding: 0; }
+.circle-control { width: 40px; height: 40px; border: 1px solid #e8d7ff55; border-radius: 50%; display: flex; justify-content: center; align-items: center; transition: border-color .4s, box-shadow .4s, background .4s; }
+.nav-control:hover .circle-control { background: #b995ed12; border-color: #ede3ffb0; box-shadow: 0 0 22px #a078da38; }
+.menu-lines { display: grid; gap: 5px; width: 14px; }
+.menu-lines i { height: 1px; background: #eee2fa; width: 14px; }
+.menu-lines i:last-child { width: 10px; }
+.brand { position: absolute; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.brand > span { font-size: 31px; font-weight: 200; letter-spacing: .24em; padding-left: .24em; line-height: 1.1; }
+.brand small { font-size: 7px; letter-spacing: .43em; padding-left: .43em; }
+.foreground { transform: translate(var(--drift-x), var(--drift-y)); transition: transform 1.7s cubic-bezier(.22,1,.36,1); }
+.headline-position { position: absolute; top: 12.21%; left: 10%; right: 10%; text-align: center; }
+.headline { font-family: Michroma, sans-serif; font-synthesis: weight; }
+h1 { margin: 0; font-size: clamp(42px, 5vw, 94px); font-weight: 700; line-height: 1.3; letter-spacing: .065em; }
+h1 span { display: block; padding-left: .085em; }
+.headline p { font-size: 10px; font-weight: 700; letter-spacing: .3em; padding-left: .3em; margin: 20px 0 0; color: #ded3e9; }
+.edge-label { position: absolute; font-size: 8px; letter-spacing: .3em; color: #d4c9e3; margin: 0; writing-mode: vertical-rl; display: flex; align-items: center; gap: 18px; top: 43%; }
+.edge-left { left: 5.8%; transform: rotate(180deg); padding: 0; }
+.edge-right { right: 5.8%; }
+.edge-line { height: 40px; width: 1px; background: #e3d1f450; }
+.edge-arrow { font-size: 17px; letter-spacing: 0; transform: rotate(180deg); }
+.emblem-position { position: absolute; top: 53%; left: 50%; margin-left: -34px; }
+.emblem { width: 68px; height: 68px; border-radius: 50%; background: #140c2460; backdrop-filter: blur(5px); }
+.emblem svg { width: 100%; height: 100%; stroke: #f2e9fa; stroke-width: .65; filter: drop-shadow(0 0 10px #d6aefa50); }
+.cta-position { position: absolute; top: 67%; left: 50%; margin-left: -93px; }
+.shop-now { width: 186px; height: 51px; border: 1px solid #efe0fc85; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 27px; font-size: 10px; letter-spacing: .25em; background: #17101e90; backdrop-filter: blur(9px); transition: box-shadow .5s, background .5s, border-color .5s; }
+.shop-now:hover { background: #bea0dc20; box-shadow: 0 0 32px #bd8cea44, inset 0 0 15px #c89ae314; border-color: #fff; }
+.shop-now svg { transition: transform .4s; }
+.shop-now:hover svg { transform: translateX(4px); }
+.benefit-bar { position: absolute; bottom: 5.5%; left: 17%; width: 66%; height: 104px; display: grid; grid-template-columns: repeat(4,1fr); align-items: center; border: 1px solid #ead8ff55; border-radius: 23px; background: #1a112c99; backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 #f7eaff1a, 0 10px 40px #0d04142b; outline: none; transition: border-color .8s, box-shadow .8s; }
+.benefit { display: flex; gap: 17px; align-items: center; justify-content: center; position: relative; height: 44px; }
+.benefit + .benefit { border-left: 1px solid #ebd6ff30; }
+.benefit-icon { width: 29px; height: 34px; color: #ecdefc; }
+.benefit p { display: flex; flex-direction: column; gap: 5px; margin: 0; font-size: 11px; letter-spacing: .18em; line-height: 1.5; }
+.benefit p span:first-child { color: #d2c3e3; font-size: 10px; }
+.benefit-bar.is-indulging { border-color: #f3ddff; box-shadow: 0 0 48px #b276ed66, inset 0 0 28px #ceb4fa18; }
+.brand-menu { z-index: 4; position: absolute; top: 14%; left: 5%; width: 300px; padding: 20px 25px; border: 1px solid #e1c7fb45; border-radius: 15px; background: #11091bd9; backdrop-filter: blur(20px); animation: reveal .4s ease both; }
+.brand-menu button { width: 100%; padding: 18px 0; display: flex; align-items: center; justify-content: space-between; font-size: 10px; letter-spacing: .16em; }
+.brand-menu button + button { border-top: 1px solid #ffffff20; }
+.reveal { animation: reveal 1.5s cubic-bezier(.22,1,.36,1) both; }
+.headline { animation-delay: .15s; }
+.edge-label { animation-name: fade; animation-delay: .65s; }
+.emblem { animation-delay: .5s; }
+.shop-now { animation-delay: .7s; }
+.benefit-bar { animation-delay: .85s; }
+@keyframes reveal { from { opacity: 0; translate: 0 13px; } to { opacity: 1; translate: 0 0; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@media (min-aspect-ratio: 19/10) { .fragrance-hero { min-height: 650px; } .headline-position { top: 12.54%; } .headline p { margin-top: 17px; } .benefit-bar { height: 85px; } }
+@media (max-width: 1000px) { .benefit-bar { left: 12%; width: 76%; } .benefit { gap: 10px; } .benefit p { font-size: 8px; } h1 { font-size: 5vw; } }
+@media (max-width: 600px) {
+  .fragrance-hero { min-height: 760px; }
+  .navigation { top: 32px; left: 6%; right: 6%; }
+  .brand > span { font-size: 23px; }
+  .brand small { font-size: 5px; }
+  .nav-control { gap: 0; }
+  .nav-control > span:not(.circle-control) { display: none; }
+  .circle-control { width: 34px; height: 34px; }
+  .headline-position { top: 14.52%; left: 6%; right: 6%; }
+  h1 { font-size: clamp(19px, 5.3vw, 32px); line-height: 1.4; letter-spacing: .045em; }
+  .headline p { font-size: 6px; letter-spacing: .2em; margin-top: 22px; }
+  .edge-label { top: 44%; font-size: 6px; letter-spacing: .2em; }
+  .edge-left { left: 6%; } .edge-right { right: 6%; }
+  .emblem-position { top: 43%; margin-left: -30px; } .emblem { width: 60px; height: 60px; }
+  .cta-position { top: 56%; margin-left: -80px; }
+  .shop-now { width: 160px; height: 45px; font-size: 8px; }
+  .benefit-bar { left: 8%; width: 84%; bottom: 5%; height: 150px; grid-template-columns: repeat(2,1fr); border-radius: 20px; }
+  .benefit { height: 52px; gap: 12px; }
+  .benefit:nth-child(3) { border-left: none; }
+  .benefit:nth-child(n+3)::before { content: ''; position: absolute; top: -12px; left: 12%; right: 12%; height: 1px; background: #ebd6ff30; }
+  .benefit p { font-size: 8px; } .benefit p span:first-child { font-size: 7px; }
+  .benefit-icon { width: 25px; height: 29px; }
+  .brand-menu { top: 95px; left: 6%; width: 88%; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .foreground { transform: none; } }
+.sequence-scroll-area { position: relative; height: 400svh; background: #000000; }
+.sequence-pin { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; }
+.sequence-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.sequence-pin > .fragrance-hero { z-index: 1; background: transparent; }
+@media (prefers-reduced-motion: reduce) { .sequence-scroll-area { height: 100svh; } }
